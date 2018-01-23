@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	luajson "github.com/davars/gopher-json"
+	"github.com/davars/luajson"
 	lua "github.com/yuin/gopher-lua"
 	"github.com/yuin/gopher-lua/parse"
 
