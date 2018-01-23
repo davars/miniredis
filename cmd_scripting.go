@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 
+	luajson "github.com/davars/gopher-json"
 	lua "github.com/yuin/gopher-lua"
 	"github.com/yuin/gopher-lua/parse"
 
@@ -33,6 +34,7 @@ func (m *Miniredis) runLuaScript(c *server.Peer, script string, args []string) {
 		{lua.TabLibName, lua.OpenTable},
 		{lua.StringLibName, lua.OpenString},
 		{lua.MathLibName, lua.OpenMath},
+		{luajson.LibName, luajson.Open},
 	} {
 		if err := l.CallByParam(lua.P{
 			Fn:      l.NewFunction(pair.f),
